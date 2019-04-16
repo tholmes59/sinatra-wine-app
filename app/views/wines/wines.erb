@@ -1,0 +1,13 @@
+<h1>We have a lot to say!</h1>
+
+<% @wines.each do |wine| %>
+    <h2><a href="/wines/<%= wine.id %>"><%= wine.wine_name %></a></h2>
+    <p><%= wine.type %></p>
+    <p><%= wine.varietal %></p>
+    <p><%= wine.region %></p>
+    <p><%= wine.year %></p>
+    <p><%= wine.price %></p>
+    <p><%= wine.tasting_notes %></p>
+    <p>By: <%= wine.user.username %></p>
+
+<% end %>
