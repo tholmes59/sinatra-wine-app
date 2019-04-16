@@ -44,6 +44,12 @@ class WinesController < ApplicationController
         if logged_in?
           if @wine.user == current_user && params[:wine_name] != ""
             @wine.wine_name = params[:wine_name]
+            @wine.type = params[:type]
+            @wine.varietal = params[:varietal]
+            @wine.region = params[:region]
+            @wine.year = params[:year]
+            @wine.price = params[:price]
+            @wine.tasting_notes = params[:tasting_notes]
             @wine.save
             redirect to "/wines/#{@wine.id}"
           else
@@ -53,6 +59,16 @@ class WinesController < ApplicationController
           redirect "/users/login"
         end
       end
-  
+
+      delete "/wines/:id" do 
+        @wine = Wine.find_by_id(params[:id])
+        if authorized_to_edit?(@wine)
+          @wine.destroy
+          redirect to "/wines"
+        else
+          redirect to '/wines'
+        end
+      end
+
 end
 
