@@ -42,8 +42,8 @@ class WinesController < ApplicationController
       patch "/wines/:id" do 
         @wine = Wine.find_by_id(params[:id])
         if logged_in?
-          if @wine.user == current_user && params[:content] != ""
-            @wine.content = params[:content]
+          if @wine.user == current_user && params[:wine_name] != ""
+            @wine.wine_name = params[:wine_name]
             @wine.save
             redirect to "/wines/#{@wine.id}"
           else
