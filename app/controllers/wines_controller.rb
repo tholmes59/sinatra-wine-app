@@ -20,6 +20,39 @@ class WinesController < ApplicationController
             redirect "/wines/new"
         end
     end
+
+    get '/wines/:id' do
+        @wine = Wine.find_by_id(params[:id])
+        erb :"/wines/show_wine"
+      end
+      
+      get "/wines/:id/edit" do  
+        @wine = Wine.find_by_id(params[:id])
+        if logged_in?
+          if authorized_to_edit?(@wine)
+          erb :"wines/edit_wine"
+          else
+            redirect "users/show/#{current_user.id}"
+          end
+        else
+          redirect "/users/login"
+        end
+      end
+       
+      patch "/wines/:id" do 
+        @wine = Wine.find_by_id(params[:id])
+        if logged_in?
+          if @wine.user == current_user && params[:content] != ""
+            @wine.content = params[:content]
+            @wine.save
+            redirect to "/wines/#{@wine.id}"
+          else
+            redirect "users/show/#{current_user.id}"
+          end 
+        else
+          redirect "/users/login"
+        end
+      end
   
 end
 
