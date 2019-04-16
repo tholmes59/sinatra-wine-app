@@ -14,13 +14,15 @@
     <link rel="stylesheet" href="/stylesheets/main.css" />
   </head>
   <body>
-  if logged_in?
+  
     <div class="navbar">
-      <a href="/show/:<%= @user.id %>">Home</a>
+    <% if logged_in? %>
+      <a href="/show/<%= current_user.id %>">Home</a>
       <a href="/wines/new">Create New Wine</a>
       <a href="/logout">Logout</a>
+      <% end %>
     </div>
-  end
+  
     <div class="wrapper">
 
         <%= yield %>
