@@ -23,12 +23,12 @@ class WinesController < ApplicationController
     end
 
     get '/wines/:id' do
-        @wine = Wine.find_by_id(params[:id])
+        set_wine
         erb :"/wines/show_wine"
       end
       
       get "/wines/:id/edit" do  
-        @wine = Wine.find_by_id(params[:id])
+          set_wine
         if logged_in?
           if authorized_to_edit?(@wine)
           erb :"wines/edit_wine"
@@ -41,7 +41,7 @@ class WinesController < ApplicationController
       end
        
       patch "/wines/:id" do 
-        @wine = Wine.find_by_id(params[:id])
+          set_wine
         if logged_in?
           if @wine.user == current_user && params[:wine_name] != ""
             @wine.wine_name = params[:wine_name]
@@ -64,7 +64,7 @@ class WinesController < ApplicationController
       end
 
       delete "/wines/:id" do 
-        @wine = Wine.find_by_id(params[:id])
+          set_wine
         if authorized_to_edit?(@wine)
           @wine.destroy
           redirect to "/wines"
@@ -72,6 +72,12 @@ class WinesController < ApplicationController
           redirect to '/wines'
         end
       end
+
+      private 
+
+        def set_wine
+          @wine = Wine.find_by_id(params[:id])
+        end 
 
 end
 
