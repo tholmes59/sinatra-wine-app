@@ -1,9 +1,9 @@
-<h1> <%= @user.username %> </h1>
+<h1> <%= current_user.username %> </h1>
 
 <h3>Please see below the list of wines you have enjoyed!</h3>
 
 <% current_user.wines.each do |wine| %>
-    <p><%= wine.wine_name %></p>
+    <h2><a href="/wines/<%= wine.id %>"><%= wine.wine_name %></a></h2>
     <p><%= wine.type %></p>
     <p><%= wine.varietal %></p>
     <p><%= wine.region %></p>
