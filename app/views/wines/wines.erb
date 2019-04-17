@@ -1,13 +1,13 @@
-<h1>I hope you find one you like!</h1>
+<h1>I hope you find one you like!</h1><br>
 
 <% @wines.each do |wine| %>
     <h2><a href="/wines/<%= wine.id %>"><%= wine.wine_name %></a></h2>
-    <p><%= wine.type %></p>
-    <p><%= wine.varietal %></p>
-    <p><%= wine.region %></p>
-    <p><%= wine.year %></p>
-    <p><%= wine.price %></p>
-    <p><%= wine.tasting_notes %></p>
-    <p>By: <%= wine.user.username %></p>
+    <p><strong>Type:</strong> <%= wine.type %></p>
+    <p><strong>Varietal:</strong> <%= wine.varietal %></p>
+    <p><strong>Region:</strong> <%= wine.region %></p>
+    <p><strong>Year:</strong> <%= wine.year %></p>
+    <p><strong>Price:</strong> <%= wine.price %></p>
+    <p><strong>Tasting Notes:</strong> <%= wine.tasting_notes %></p>
+    <p><strong>Created By:</strong> <%= wine.user.username %></p>
 
 <% end %>
