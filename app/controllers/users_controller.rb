@@ -11,8 +11,13 @@ class UsersController < ApplicationController
 	post "/users" do
 	  if params[:username] != "" && params[:email] != "" &&   params[:password] != ""
 		   @user = User.create(username: params[:username], email: params[:email], password: params[:password])
-      session[:user_id] = @user.id
-      redirect "/show/#{@user.id}"
+			if @user.valid?
+			 	session[:user_id] = @user.id
+				redirect "/show/#{@user.id}"
+			else @user.invalid? && User.find_by(username: @user.username)
+				flash[:message] = "That username is already taken, please choose another."
+				redirect to '/signup'
+			end 
 		else
 			flash[:message] = "Pleae don't leave items blank"
       redirect "/signup"
