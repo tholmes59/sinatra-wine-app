@@ -15,6 +15,7 @@ class WinesController < ApplicationController
         end
         if params[:wine_name] != ""
             @wine = Wine.create(wine_name: params[:wine_name], type: params[:type], varietal: params[:varietal], region: params[:region], year: params[:year], price: params[:price], tasting_notes: params[:tasting_notes], user_id: current_user.id)
+            flash[:message] = "Wine successfully created!"
             redirect to "/wines/#{@wine.id}"
         else
             redirect "/wines/new"
@@ -51,9 +52,11 @@ class WinesController < ApplicationController
             @wine.price = params[:price]
             @wine.tasting_notes = params[:tasting_notes]
             @wine.save
+            flash[:message] = "Wine successfully edited!"
             redirect to "/wines/#{@wine.id}"
           else
-            redirect "users/show/#{current_user.id}"
+            flash[:message] = "You must include a name to be successfully edited! Please try again."
+            redirect "/show/#{current_user.id}"
           end 
         else
           redirect "/users/login"
