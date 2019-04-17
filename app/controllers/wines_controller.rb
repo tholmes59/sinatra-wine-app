@@ -67,6 +67,7 @@ class WinesController < ApplicationController
           set_wine
         if authorized_to_edit?(@wine)
           @wine.destroy
+          flash[:message] = "Your wine as been deleted"
           redirect to "/wines"
         else
           redirect to '/wines'

@@ -1,3 +1,6 @@
+<% if flash.has?(:message) %>
+<p style="color:green;"><%= flash[:message] %> </p>
+<% end %>
 <h1>I hope you find one you like!</h1><br>
 
 <% @wines.each do |wine| %>
