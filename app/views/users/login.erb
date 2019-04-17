@@ -1,8 +1,13 @@
-<h3>Login</h3>
+<% if flash.has?(:message) %>
+<p style="color:red;"><%= flash[:message] %> </p>
+<% end %>
+<h2>Please Login Below</h2>
 <form action="/login" method="POST">
 	<input type="text" name="username" placeholder="Username:">
 	<input type="password" name="password" placeholder="Password:">
-	<input type="submit" value="Log In">
-</form>
+	<input type="submit" value="Log In" class="button">
+</form><br><br>
 
-<a href="/">Home</a>
+<p>Don't have an account with us yet?</p>
+<p>Please create an account!</p>
+<a href="/signup" class="button">Sign Up!</a>
