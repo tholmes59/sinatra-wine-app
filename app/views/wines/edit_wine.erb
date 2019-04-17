@@ -1,0 +1,20 @@
+<h1>We are glad you remembered!<h1>
+
+<form action="/wines/<%= @wine.id %>" method="post">
+  <input id="hidden" type="hidden" name="_method" value="patch">
+  <label for="wine-name">Name:</label>
+  <input type="text" name="wine_name" id="wine-name" value="<%= @wine.wine_name %>"><br>
+  <label for="type">Type:</label>
+  <input type="text" name="type" id="type" value="<%= @wine.type %>"><br>
+  <label for="varietal">Varietal:</label>
+  <input type="text" name="varietal" id="varietal" value="<%= @wine.varietal %>"><br>
+  <label for="region">Region:</label>
+  <input type="text" name="region" id="region" value="<%= @wine.region %>"><br>
+  <label for="year">Year:</label>
+  <input type="text" name="year" id="year" value="<%= @wine.year %>"><br>
+  <label for="price">Price:</label>
+  <input type="text" name="price" id="price" value="<%= @wine.price %>"><br>
+  <label for="tasting_notes">Tasting Notes:</label>
+  <input type="text" name="tasting_notes" id="tasting_notes" value="<%= @wine.tasting_notes %>"><br>
+  <input type="submit" value="edit">
+</form>
