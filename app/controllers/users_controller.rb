@@ -25,8 +25,9 @@ class UsersController < ApplicationController
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
       redirect "/show/#{@user.id}"
-    else
-      redirect "/"
+		else
+			flash[:message] = "You may have entered something incorrectly. Please try again"
+      redirect "/login"
     end
   end
   
