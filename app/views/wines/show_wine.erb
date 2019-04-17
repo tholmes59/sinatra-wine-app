@@ -1,16 +1,15 @@
 <% if flash.has?(:message) %>
 <p style="color:green;"><%= flash[:message] %> </p>
 <% end %>
-<h2>Description:</h2>
+<h2>One of your favorite wines:</h2>
 
-
-<h3><%= @wine.wine_name %></h3>
-<p><%= @wine.type %></p>
-<p><%= @wine.varietal %></p>
-<p><%= @wine.region %></p>
-<p><%= @wine.year %></p>
-<p><%= @wine.price %></p>
-<p><%= @wine.tasting_notes %></p>
+<h3 style="font-size: 35px;"><strong><%= @wine.wine_name %></strong></h3><br>
+<p><strong>Type:</strong> <%= @wine.type %></p>
+<p><strong>Varietal:</strong> <%= @wine.varietal %></p>
+<p><strong>Region:</strong> <%= @wine.region %></p>
+<p><strong>Year:</strong> <%= @wine.year %></p>
+<p><strong>Price:</strong> <%= @wine.price %></p>
+<p><strong>Tasting Notes:</strong> <%= @wine.tasting_notes %></p>
 
 
 <% if authorized_to_edit?(@wine) %>
@@ -18,6 +17,6 @@
   <input id="hidden" type="hidden" name="_method" value="delete">
   <input type="submit" value="Delete Wine" class="button">
 </form>
-
+<br>
 <a class="button" href="/wines/<%= @wine.id %>/edit">Edit Wine</a>
 <% end %>
