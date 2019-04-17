@@ -1,7 +1,13 @@
-<h2>See Your Thoughts Below:</h2>
+<h2>Description:</h2>
 
 
 <h3><%= @wine.wine_name %></h3>
+<p><%= @wine.type %></p>
+<p><%= @wine.varietal %></p>
+<p><%= @wine.region %></p>
+<p><%= @wine.year %></p>
+<p><%= @wine.price %></p>
+<p><%= @wine.tasting_notes %></p>
 
 
 <% if authorized_to_edit?(@wine) %>
