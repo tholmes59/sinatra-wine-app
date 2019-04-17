@@ -13,7 +13,8 @@ class UsersController < ApplicationController
 		   @user = User.create(username: params[:username], email: params[:email], password: params[:password])
       session[:user_id] = @user.id
       redirect "/show/#{@user.id}"
-    else
+		else
+			flash[:message] = "Pleae don't leave items blank"
       redirect "/signup"
 	  end
   end
