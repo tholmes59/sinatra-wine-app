@@ -13,8 +13,8 @@
 <% if authorized_to_edit?(@wine) %>
 <form action="/wines/<%= @wine.id %>" method="post">
   <input id="hidden" type="hidden" name="_method" value="delete">
-  <input type="submit" value="Delete wine">
+  <input type="submit" value="Delete Wine" class="button">
 </form>
 
-<a class="button" href="/wines/<%= @wine.id %>/edit">Edit wine</a>
+<a class="button" href="/wines/<%= @wine.id %>/edit">Edit Wine</a>
 <% end %>

@@ -1,20 +1,21 @@
-<h1>We are glad you remembered!<h1>
+<h2>Forget something?</h2>
+<h3>Don't worry, after a few glasses we do too!</h3><br>
 
 <form action="/wines/<%= @wine.id %>" method="post">
   <input id="hidden" type="hidden" name="_method" value="patch">
-  <label for="wine-name">Name:</label>
-  <input type="text" name="wine_name" id="wine-name" value="<%= @wine.wine_name %>"><br>
-  <label for="type">Type:</label>
-  <input type="text" name="type" id="type" value="<%= @wine.type %>"><br>
-  <label for="varietal">Varietal:</label>
-  <input type="text" name="varietal" id="varietal" value="<%= @wine.varietal %>"><br>
-  <label for="region">Region:</label>
-  <input type="text" name="region" id="region" value="<%= @wine.region %>"><br>
-  <label for="year">Year:</label>
-  <input type="text" name="year" id="year" value="<%= @wine.year %>"><br>
-  <label for="price">Price:</label>
-  <input type="text" name="price" id="price" value="<%= @wine.price %>"><br>
-  <label for="tasting_notes">Tasting Notes:</label>
-  <input type="text" name="tasting_notes" id="tasting_notes" value="<%= @wine.tasting_notes %>"><br>
-  <input type="submit" value="edit">
+  <label for="wine-name">Name:</label><br>
+  <input style="width: 250px;" type="text" name="wine_name" id="wine-name" value="<%= @wine.wine_name %>"><br><br>
+  <label for="type">Type:</label><br>
+  <input style="width: 250px;" type="text" name="type" id="type" value="<%= @wine.type %>"><br><br>
+  <label for="varietal">Varietal:</label><br>
+  <input style="width: 250px;" type="text" name="varietal" id="varietal" value="<%= @wine.varietal %>"><br><br>
+  <label for="region">Region:</label><br>
+  <input style="width: 250px;" type="text" name="region" id="region" value="<%= @wine.region %>"><br><br>
+  <label for="year">Year:</label><br>
+  <input style="width: 250px;" type="text" name="year" id="year" value="<%= @wine.year %>"><br><br>
+  <label for="price">Price:</label><br>
+  <input style="width: 250px;" type="text" name="price" id="price" value="<%= @wine.price %>"><br><br>
+  <label for="tasting_notes">Tasting Notes:</label><br>
+  <input style="width: 250px;" type="text" name="tasting_notes" id="tasting_notes" value="<%= @wine.tasting_notes %>"><br><br>
+  <input type="submit" value="Edit Wine!" class="button">
 </form>
