@@ -112,6 +112,17 @@
     border-left: 1px solid #CCCCCC;
   }
 
+  .welcome {
+    text-align: center;
+  }
+
+  .welcome h2 {
+    font-size: 40px;
+    border-bottom: 2px solid #ccc;
+    line-height: 50px;
+    margin-bottom: 20px;
+  }
+
 }
 
 @media screen and (max-width: 600px) {
