@@ -1,4 +1,4 @@
-#Wine Journal App
+# Wine Journal App
 This is a sinatra web application created to keep track of all the wines you have enjoyed, by adding:
 
 - Name
@@ -9,13 +9,13 @@ This is a sinatra web application created to keep track of all the wines you hav
 - Price
 - Tasting Notes
 
-##Usage
+## Usage
 To use this app, just clone, run `bundle install`, `rake db:migrate` and then run `shotgun` in ther terminal. Everything should be set up.
 
-##Contributing Bugfixes or Features
+## Contributing Bugfixes or Features
 For submitting something back, be it a patch, some documentation, or new feature requires some level of community interactions.
 
-##Committing code is easy:
+## Committing code is easy:
 
 - Fork the this repository
 - Create a local development branch for the bugfix; I recommend naming the branch such that you'll recognize its purpose.
@@ -24,5 +24,5 @@ For submitting something back, be it a patch, some documentation, or new feature
 
 I apologize in advance for the slow action on pull requests and issues.
 
-##License
+## License
 Wine Journal App is licensed under the MIT license. (http://opensource.org/licenses/MIT)
