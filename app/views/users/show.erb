@@ -3,7 +3,11 @@
 <% end %>
 <h1>Welcome, <%= current_user.username %>! </h1>
 
+<% if current_user.wines.empty?%>
+<h3>Please enter your first wine here! <a href="/wines/new" class="button">Create New Wine!</a></h3><br>
+<% else %>
 <h3>Please see below the list of wines you have enjoyed!</h3><br>
+<% end %>
 
 <% current_user.wines.each do |wine| %>
     <h2><a href="/wines/<%= wine.id %>"><%= wine.wine_name %></a></h2>
@@ -14,5 +18,3 @@
     <p><strong>Price:</strong> <%= wine.price %></p>
     <p><strong>Tasting Notes:</strong> <%= wine.tasting_notes %></p>
     <% end %>
-
-    
