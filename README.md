@@ -10,7 +10,7 @@ This is a sinatra web application created to keep track of all the wines you hav
 - Tasting Notes
 
 ## Usage
-To use this app, just clone, run `bundle install`, `rake db:migrate` and then run `shotgun` in ther terminal. Everything should be set up.
+To use this app, just clone, run `bundle install`, `rake db:migrate` and then run `shotgun` in the terminal. Everything should be set up.
 
 ## Contributing Bugfixes or Features
 For submitting something back, be it a patch, some documentation, or new feature requires some level of community interactions.

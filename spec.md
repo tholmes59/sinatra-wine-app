@@ -22,13 +22,13 @@ Specs:
 - [x] Ensure that users can't modify content created by other users
 * User controller was built to only allow current_user to modify its own content by checking its session user id before making any changes.
 
-- [ ] Include user input validations
+- [x] Include user input validations
 * All parameters inserted in forms are validated before any action its taken, and user is warned and re-routed if any invalid data is present.
 
-- [ ] Display validation failures to user with error message (example form URL e.g. /posts/new)
+- [x] Display validation failures to user with error message (example form URL e.g. /posts/new)
 * flash-rack gem was added to the project's gemfile, required once in the ApplicationController to add custom messages in case of any invalid data.
 
-- [ ] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
+- [x] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
 
 Confirm
 - [x] You have a large number of small Git commits
