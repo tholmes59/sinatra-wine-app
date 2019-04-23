@@ -14,7 +14,7 @@ class UsersController < ApplicationController
 			if @user.valid?
 				session[:user_id] = @user.id
 				redirect "/show/#{@user.id}"
-			else @user.invalid? && User.find_by(username: @user.username) && User.find_by(email: @user.email)
+			else #@user.invalid? && User.find_by(username: @user.username) && User.find_by(email: @user.email)
 				flash[:message] = "That username or email is already taken, please choose another."
 				redirect to '/signup'
 			end
@@ -35,13 +35,10 @@ class UsersController < ApplicationController
 		end
 	end
 	
-	get "/show/:id" do
-		if logged_in?
+	get "/show/:id" do #change to /users/
+		redirect_if_not_logged_in
 			@user = User.find_by(params[:id])
 			erb :"users/show"
-		else
-			redirect "/login"
-		end
 	end
 	
 	get "/logout" do
