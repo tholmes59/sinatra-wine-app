@@ -29,20 +29,17 @@ class WinesController < ApplicationController
       
       get "/wines/:id/edit" do  
           set_wine
-        if logged_in?
+        redirect_if_not_logged_in
           if authorized_to_edit?(@wine)
           erb :"wines/edit_wine"
           else
-            redirect "users/show/#{current_user.id}"
+            redirect "/show/#{current_user.id}"
           end
-        else
-          redirect "/users/login"
-        end
       end
        
       patch "/wines/:id" do 
           set_wine
-        if logged_in?
+          redirect_if_not_logged_in
           if @wine.user == current_user && params[:wine_name] != ""
             @wine.wine_name = params[:wine_name]
             @wine.type = params[:type]
@@ -58,9 +55,6 @@ class WinesController < ApplicationController
             flash[:message] = "You must include a name to be successfully edited! Please try again."
             redirect "/show/#{current_user.id}"
           end 
-        else
-          redirect "/users/login"
-        end
       end
 
       delete "/wines/:id" do 
