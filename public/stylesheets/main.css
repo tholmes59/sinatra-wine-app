@@ -52,8 +52,6 @@
     line-height: 18px;
   }
 
-  
-
   .wrapper {
     background: #F5F5DC;
     -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
@@ -84,6 +82,13 @@
 
   p {
     margin-bottom: 18px;
+  }
+
+  .wrapper h2 a {
+    color: red;
+    text-decoration: none;
+    text-transform: uppercase;
+    cursor: progress;
   }
 
   .main {
